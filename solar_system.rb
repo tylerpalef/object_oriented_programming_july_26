@@ -1,7 +1,7 @@
 class System
 @@bodies = []
 
-  def initialize(name='N/A', mass='N/A')
+  def initialize
     @@bodies = bodies
     @add = add
     @total_mass = total_mass
@@ -21,7 +21,7 @@ class System
   end
 
   def self.bodies
-    @@bodies
+    return @@bodies
   end
 
 end
@@ -31,7 +31,6 @@ class Body < System
     @name = name
     @mass = mass
     @@bodies << name
-    super
   end
 end
 
@@ -39,7 +38,6 @@ class Planet < Body
   def initialize(day, year)
     @day = day
     @year = year
-    super
   end
 end
 
@@ -53,13 +51,8 @@ class Moon < Body
   def initialize(month, planet_orbit)
     @month = month
     @planet_orbit = planet_orbit
-    super
   end
 end
 
 earth = Body.new('Earth', 99)
-moon = Moon.new('12', 'Earth')
 p earth
-p moon
-p bodies
-# puts bodies
