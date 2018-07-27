@@ -30,7 +30,7 @@ class System
   end
 
   def self.total_mass
-    return @@total_mass
+    return @total_mass
   end
 
 end
