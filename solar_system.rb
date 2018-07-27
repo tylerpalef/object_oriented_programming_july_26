@@ -1,12 +1,12 @@
 class System
 @@bodies = []
-@@total_mass = []
+# @@total_mass = []
 
   def initialize
     @@bodies = bodies
-    @@total_mass = total_mass
+    # @@total_mass = total_mass
     @add = add
-    @total_mass = total_mass
+    # @total_mass = total_mass
   end
 
   def add
@@ -30,30 +30,37 @@ class System
   end
 
   def self.total_mass
-    return @total_mass
+    return @@total_mass
   end
 
 end
 
-class Body < System
+class Body
   def initialize(name, mass)
     @name = name
     @mass = mass
-    @@bodies << name
-    @@total_mass << mass
-
+    # @@bodies << name
+    # @@total_mass << mass
   end
+
+  def name
+    @name
+  end
+
+  def mass
+    @mass
+  end
+
 end
 
 class Planet < Body
   def initialize(day, year)
     @day = day
     @year = year
-    super
   end
 end
 
-class Star < Body
+class Star
   def initialize(type)
     @type = type
   end
@@ -63,7 +70,6 @@ class Moon < Body
   def initialize(month, planet_orbit)
     @month = month
     @planet_orbit = planet_orbit
-    super
   end
 end
 
